@@ -4,6 +4,96 @@
 ## Overview
 This project implements a YOLOv3-based object detection system. YOLOv3 (You Only Look Once, Version 3) is a powerful, real-time object detection algorithm capable of detecting multiple objects within an image or video frame. This repository includes scripts for training the YOLOv3 model on the COCO dataset, as well as scripts for performing object detection using the trained model.
 
+## Project Structure
+
+Here is a detailed breakdown of the project directory structure:
+
+E:\yolov3_object_detection\
+├── data\
+│   ├── annotations\
+│   │   ├── annotations_trainval2017.zip
+│   ├── images\
+│   │   ├── train2017.zip
+│   │   ├── val2017.zip
+├── model\
+│   ├── yolov3.cfg
+│   ├── yolov3.weights
+├── output\
+│   ├── (Annotated images and detection results will be saved here)
+├── scripts\
+│   ├── detect.py
+│   ├── train.py
+│   ├── yolo_model.py
+│   ├── yolo_model.h5
+│   ├── __pycache__/
+├── source\
+│   ├── Include\
+│   ├── Lib\
+│   ├── Scripts\
+│   │   ├── activate
+│   │   ├── activate.bat
+│   │   ├── Activate.ps1
+│   │   ├── deactivate.bat
+│   │   ├── pip.exe
+│   │   ├── pip3.12.exe
+│   │   ├── pip3.exe
+│   │   ├── python.exe
+│   │   ├── pythonw.exe
+│   ├── pyvenv.cfg
+├── download_coco.py
+├── download_yolov3.py
+├── README.md
+├── requirements.txt
+├── LICENSE
+├── .gitignore
+
+### Folder and File Details
+
+- **`data/`**: Contains datasets required for training and validation.
+  - **`annotations/`**: Contains annotation files for object detection.
+    - `annotations_trainval2017.zip`: Contains the annotations (bounding box coordinates and class labels) for training and validation images.
+  - **`images/`**: Contains image files for training and validation.
+    - `train2017.zip`: Contains training images.
+    - `val2017.zip`: Contains validation images.
+
+- **`model/`**: Contains model configuration and weights files.
+  - `yolov3.cfg`: Configuration file for the YOLOv3 model, including network architecture and parameters.
+  - `yolov3.weights`: Pre-trained weights file for the YOLOv3 model.
+
+- **`output/`**: Directory where output files from object detection are saved.
+  - Annotated images and detection results will be stored here after running the detection script.
+
+- **`scripts/`**: Contains Python scripts for training and detecting objects.
+  - `detect.py`: Script for running object detection on new images or video streams.
+  - `train.py`: Script for training the YOLOv3 model on the COCO dataset.
+  - `yolo_model.py`: Contains model definition and utility functions.
+  - `yolo_model.h5`: Pre-trained model file (if applicable).
+  - `__pycache__/`: Directory containing cached bytecode files (auto-generated).
+
+- **`source/`**: Contains Python virtual environment files and dependencies.
+  - **`Include/`**: Includes headers for the Python virtual environment.
+  - **`Lib/`**: Contains library files for the Python virtual environment.
+  - **`Scripts/`**: Contains scripts to manage the virtual environment.
+    - `activate`: Script to activate the virtual environment (for Unix-like systems).
+    - `activate.bat`: Script to activate the virtual environment (for Windows).
+    - `Activate.ps1`: PowerShell script to activate the virtual environment (for Windows).
+    - `deactivate.bat`: Script to deactivate the virtual environment (for Windows).
+    - `pip.exe`, `pip3.12.exe`, `pip3.exe`: Executables for package management.
+    - `python.exe`, `pythonw.exe`: Python executables.
+  - `pyvenv.cfg`: Configuration file for the Python virtual environment.
+
+- **`download_coco.py`**: Script to automate the download of the COCO dataset.
+
+- **`download_yolov3.py`**: Script to automate the download of YOLOv3 weights and configuration files.
+
+- **`README.md`**: Markdown file containing the project overview, instructions, and documentation.
+
+- **`requirements.txt`**: File listing the Python packages required for the project.
+
+- **`LICENSE`**: License file detailing the project's licensing terms.
+
+- **`.gitignore`**: File specifying which files and directories to ignore in version control.
+
 ## COCO Dataset
 The COCO (Common Objects in Context) dataset is used for training and evaluating the YOLOv3 model. COCO is a large-scale object detection, segmentation, and captioning dataset. It contains over 200,000 labeled images with more than 80 object categories. Below are the links to download the necessary parts of the COCO dataset:
 
@@ -17,7 +107,6 @@ The COCO (Common Objects in Context) dataset is used for training and evaluating
   - [Download COCO 2017 Validation Images](http://images.cocodataset.org/zips/val2017.zip)
 
 After downloading, unzip these files into the `data/` directory. The directory structure should look like this:
-
 
 YOLOv3_Object_Detection/
 ├── data/
@@ -41,7 +130,6 @@ YOLOv3_Object_Detection/
 ├── requirements.txt
 ├── LICENSE
 ├── .gitignore
-```
 
 ## YOLOv3 Model Files
 
@@ -91,8 +179,8 @@ To get started with this project:
 
 - **Detection**: Run the `detect.py` script to detect objects in an input image using the trained model.
 
-## License
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
-```
+## Output
 
-This markdown file should be well-structured and easy to read on GitHub. It includes detailed instructions, dataset links, and descriptions of the files and scripts used in the project.
+When running the `detect.py` script, the output will include:
+
+- **Annotated Images**: Images with detected objects highlighted by
